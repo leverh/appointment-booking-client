@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '../supabaseClient';
 import { format, addDays, setHours, setMinutes } from 'date-fns';
+import { getStylistPhoto } from '../utils/imageHelpers';
 import './BookingPage.css';
 
 const BookingPage = () => {
@@ -273,29 +274,29 @@ const BookingPage = () => {
       )}
 
       {/* Step 2: Select Stylist */}
-      {step === 2 && (
-        <div className="step-content">
-          <button className="btn-back" onClick={goBack}>← Back</button>
-          <h2>Choose Your Stylist</h2>
-          <div className="stylists-grid">
-            {availableStylists.map(stylist => (
-              <div 
-                key={stylist.id} 
-                className="stylist-card"
-                onClick={() => handleStylistSelect(stylist)}
-              >
-                <img 
-                  src={stylist.photo_url} 
-                  alt={stylist.name}
-                  className="stylist-photo"
-                />
-                <h3>{stylist.name}</h3>
-                <p className="stylist-bio">{stylist.bio}</p>
-              </div>
-            ))}
-          </div>
+{step === 2 && (
+  <div className="step-content">
+    <button className="btn-back" onClick={goBack}>← Back</button>
+    <h2>Choose Your Stylist</h2>
+    <div className="stylists-grid">
+      {availableStylists.map(stylist => (
+        <div 
+          key={stylist.id} 
+          className="stylist-card"
+          onClick={() => handleStylistSelect(stylist)}
+        >
+          <img 
+            src={getStylistPhoto(stylist)} 
+            alt={stylist.name}
+            className="stylist-photo"
+          />
+          <h3>{stylist.name}</h3>
+          <p className="stylist-bio">{stylist.bio}</p>
         </div>
-      )}
+      ))}
+    </div>
+  </div>
+)}
 
       {/* Step 3: Select Date and Time */}
       {step === 3 && (
