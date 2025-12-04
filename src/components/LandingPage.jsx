@@ -3,6 +3,7 @@ import heroImage from '../assets/hero.webp';
 import gallery1 from '../assets/gallery-1.webp';
 import gallery2 from '../assets/gallery-2.webp';
 import gallery3 from '../assets/gallery-3.webp';
+import { CalendarDays, Users, Scissors, BellRing} from 'lucide-react';
 import './LandingPage.css';
 
 const LandingPage = ({ onBookNow }) => {
@@ -81,22 +82,22 @@ const LandingPage = ({ onBookNow }) => {
           <h3>Why Choose StyleBook?</h3>
           <div className="features-grid">
             <div className="feature-card">
-              <div className="feature-icon">📅</div>
+              <div className="feature-icon"><CalendarDays size={28} /></div>
               <h4>Easy Scheduling</h4>
               <p>View real time availability and book your appointment in seconds.</p>
             </div>
             <div className="feature-card">
-              <div className="feature-icon">👥</div>
+              <div className="feature-icon"><Users size={28} /></div>
               <h4>Choose Your Stylist</h4>
               <p>Select from your team of experienced professionals.</p>
             </div>
             <div className="feature-card">
-              <div className="feature-icon">💆</div>
+              <div className="feature-icon"><Scissors size={28} /></div>
               <h4>Multiple Services</h4>
               <p>Haircuts, color, treatments and more in one booking flow.</p>
             </div>
             <div className="feature-card">
-              <div className="feature-icon">✉️</div>
+              <div className="feature-icon"><BellRing size={28} /></div>
               <h4>Instant Confirmation</h4>
               <p>Automatic confirmations and reminders for every visit.</p>
             </div>
