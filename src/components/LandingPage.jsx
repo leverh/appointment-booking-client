@@ -36,7 +36,7 @@ const LandingPage = ({ onBookNow }) => {
 
             {/* Small fake booking preview card for “online system” emphasis */}
             <div className="hero-booking-preview">
-              <p className="preview-label">Next available today</p>
+              <p className="preview-label">Next appointment available today</p>
               <div className="preview-row">
                 <span>Service</span>
                 <strong>Cut and Style</strong>

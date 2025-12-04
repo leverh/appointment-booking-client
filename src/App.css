@@ -1,3 +1,43 @@
+:root {
+  /* Base backgrounds */
+  --color-bg: #f5f5f4;            /* page background */
+  --color-bg-alt: #f9f8f6;        /* section background */
+  --color-surface: #f7f7f6;       /* cards, elevated blocks */
+  --color-surface-elevated: #ffffff; /* white */
+
+  /* Text */
+  --color-text: #141414;          /* main text */
+  --color-text-muted: #5f5f5f;    /* secondary text */
+  --color-text-soft: #888888;     /* helper text, meta */
+  --color-text-on-dark: #f7f7f6;  /* text on dark/hero/footer */
+
+  /* Warm accent */
+  --color-accent: #c48a4a;        /* main accent (icons, highlights) */
+  --color-accent-strong: #a56c30; /* hover / stronger states */
+  --color-accent-soft: #f3e2cf;   /* subtle pills, labels, backgrounds */
+
+  /* Buttons */
+  --btn-primary-bg: #f6f3ef;
+  --btn-primary-bg-hover: #f0ede8;
+  --btn-primary-text: #141414;
+
+  /* Borders & dividers */
+  --border-subtle: rgba(15, 15, 15, 0.08);
+  --border-strong: rgba(15, 15, 15, 0.18);
+
+  /* Hero overlay (background image) */
+  --hero-overlay-start: rgba(15, 15, 15, 0.4);
+  --hero-overlay-end: rgba(15, 15, 15, 0.7);
+
+  /* Footer / dark areas */
+  --footer-bg: #1f2023;
+
+  /* Shadows */
+  --shadow-soft: 0 2px 10px rgba(0, 0, 0, 0.05);
+  --shadow-elevated: 0 15px 35px rgba(0, 0, 0, 0.25);
+}
+
+
 * {
   margin: 0;
   padding: 0;
@@ -8,9 +48,8 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background: #fafafa;
+  background: var(--color-bg);
+  color: var(--color-text);
 }
 
 .App {
