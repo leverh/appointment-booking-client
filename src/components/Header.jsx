@@ -12,8 +12,8 @@ const Header = ({ showBackButton = false, onBackToHome }) => {
         >
           <img src={scissors} alt="StyleBook logo" className="logo-mark" />
           <div className="logo-text">
-            <span className="logo-title">StyleBook</span>
-            <span className="logo-tagline">Smart Appointment Booking</span>
+            <span className="logo-title">Cut Theory</span>
+            <span className="logo-tagline">Hair Styling</span>
           </div>
         </div>
 
