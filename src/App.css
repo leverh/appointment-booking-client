@@ -1,42 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
 :root {
-  /* Base backgrounds */
-  --color-bg: #f5f5f4;            /* page background */
-  --color-bg-alt: #f9f8f6;        /* section background */
-  --color-surface: #f7f7f6;       /* cards, elevated blocks */
-  --color-surface-elevated: #ffffff; /* white */
-
-  /* Text */
-  --color-text: #141414;          /* main text */
-  --color-text-muted: #5f5f5f;    /* secondary text */
-  --color-text-soft: #888888;     /* helper text, meta */
-  --color-text-on-dark: #f7f7f6;  /* text on dark/hero/footer */
-
-  /* Warm accent */
-  --color-accent: #c48a4a;        /* main accent (icons, highlights) */
-  --color-accent-strong: #a56c30; /* hover / stronger states */
-  --color-accent-soft: #f3e2cf;   /* subtle pills, labels, backgrounds */
-
-  /* Buttons */
-  --btn-primary-bg: #f6f3ef;
-  --btn-primary-bg-hover: #f0ede8;
-  --btn-primary-text: #141414;
-
-  /* Borders & dividers */
-  --border-subtle: rgba(15, 15, 15, 0.08);
-  --border-strong: rgba(15, 15, 15, 0.18);
-
-  /* Hero overlay (background image) */
-  --hero-overlay-start: rgba(15, 15, 15, 0.4);
-  --hero-overlay-end: rgba(15, 15, 15, 0.7);
-
-  /* Footer / dark areas */
-  --footer-bg: #1f2023;
-
+  /* Refined warm palette */
+  --color-cream: #fdfbf7;
+  --color-warm-white: #f9f6f1;
+  --color-sand: #f0ebe3;
+  --color-stone: #e8e3db;
+  
+  /* Text colors */
+  --color-charcoal: #1a1614;
+  --color-slate: #4a4541;
+  --color-gray: #7a756f;
+  --color-light-gray: #9b958e;
+  
+  /* Warm accents */
+  --color-amber: #d4a574;
+  --color-amber-dark: #b8895f;
+  --color-amber-light: #e8d4bb;
+  --color-terracotta: #c4856f;
+  
+  /* UI elements */
+  --color-white: #ffffff;
+  --color-black: #0f0e0d;
+  
   /* Shadows */
-  --shadow-soft: 0 2px 10px rgba(0, 0, 0, 0.05);
-  --shadow-elevated: 0 15px 35px rgba(0, 0, 0, 0.25);
+  --shadow-subtle: 0 1px 3px rgba(15, 14, 13, 0.04), 0 1px 2px rgba(15, 14, 13, 0.03);
+  --shadow-soft: 0 4px 12px rgba(15, 14, 13, 0.06), 0 2px 4px rgba(15, 14, 13, 0.04);
+  --shadow-medium: 0 8px 24px rgba(15, 14, 13, 0.08), 0 4px 8px rgba(15, 14, 13, 0.06);
+  --shadow-strong: 0 16px 48px rgba(15, 14, 13, 0.12), 0 8px 16px rgba(15, 14, 13, 0.08);
+  
+  /* Typography */
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  
+  /* Spacing scale */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+  --space-xl: 4rem;
+  --space-2xl: 6rem;
+  
+  /* Border radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
 }
-
 
 * {
   margin: 0;
@@ -44,15 +55,51 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  background: var(--color-bg);
-  color: var(--color-text);
+  font-family: var(--font-body);
+  background: var(--color-cream);
+  color: var(--color-charcoal);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .App {
   min-height: 100vh;
-  padding: 20px 0;
+}
+
+/* Typography utilities */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--color-charcoal);
+}
+
+/* Smooth transitions */
+a, button {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Selection styling */
+::selection {
+  background: var(--color-amber-light);
+  color: var(--color-charcoal);
+}
+
+/* Utility classes */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 0 var(--space-lg);
+  }
 }
