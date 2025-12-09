@@ -5,11 +5,13 @@ import gallery2 from '../assets/gallery-2.webp';
 import gallery3 from '../assets/gallery-3.webp';
 import gallery4 from '../assets/gallery-4.webp';
 import { CalendarDays, Users, Scissors, BellRing, Clock, Sparkles } from 'lucide-react';
+import DemoBanner from './DemoBanner';
 import './LandingPage.css';
 
 const LandingPage = ({ onBookNow }) => {
   return (
     <div className="landing-page">
+      <DemoBanner />
       <Header />
 
       {/* HERO - Full width centered */}
