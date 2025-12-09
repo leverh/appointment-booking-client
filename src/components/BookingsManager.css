@@ -1,0 +1,288 @@
+.bookings-manager {
+  width: 100%;
+}
+
+/* ============================================
+   MANAGER HEADER
+   ============================================ */
+
+.manager-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-xl);
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+
+.manager-header h2 {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--color-charcoal);
+}
+
+/* ============================================
+   FILTER BUTTONS
+   ============================================ */
+
+.filter-buttons {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+.filter-buttons button {
+  padding: 10px 20px;
+  background: var(--color-sand);
+  color: var(--color-slate);
+  border: 2px solid var(--color-stone);
+  border-radius: var(--radius-full);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.filter-buttons button:hover {
+  background: var(--color-amber-light);
+  border-color: var(--color-amber);
+  color: var(--color-charcoal);
+  transform: translateY(-2px);
+}
+
+.filter-buttons button.active {
+  background: linear-gradient(135deg, var(--color-amber) 0%, var(--color-terracotta) 100%);
+  color: var(--color-white);
+  border-color: transparent;
+  box-shadow: var(--shadow-soft);
+}
+
+/* ============================================
+   EMPTY STATE
+   ============================================ */
+
+.empty-state {
+  text-align: center;
+  padding: var(--space-2xl);
+  color: var(--color-slate);
+  font-size: 16px;
+  background: var(--color-sand);
+  border-radius: var(--radius-lg);
+  border: 2px dashed var(--color-stone);
+}
+
+/* ============================================
+   BOOKINGS TABLE
+   ============================================ */
+
+.bookings-table-container {
+  overflow-x: auto;
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--color-stone);
+}
+
+.bookings-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--color-white);
+}
+
+.bookings-table thead {
+  background: linear-gradient(135deg, var(--color-sand) 0%, var(--color-warm-white) 100%);
+  border-bottom: 2px solid var(--color-stone);
+}
+
+.bookings-table th {
+  padding: var(--space-md) var(--space-md);
+  text-align: left;
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-slate);
+}
+
+.bookings-table tbody tr {
+  border-bottom: 1px solid var(--color-stone);
+  transition: background 0.2s ease;
+}
+
+.bookings-table tbody tr:hover {
+  background: var(--color-warm-white);
+}
+
+.bookings-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.bookings-table td {
+  padding: var(--space-md) var(--space-md);
+  color: var(--color-charcoal);
+  font-size: 14px;
+  vertical-align: middle;
+}
+
+/* ============================================
+   TABLE CELL CONTENT
+   ============================================ */
+
+.date-time {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.date-time .date {
+  font-weight: 600;
+  color: var(--color-charcoal);
+}
+
+.date-time .time {
+  font-size: 13px;
+  color: var(--color-slate);
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 13px;
+  color: var(--color-slate);
+}
+
+.price {
+  font-size: 12px;
+  color: var(--color-amber-dark);
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+/* ============================================
+   STATUS BADGE
+   ============================================ */
+
+.status-badge {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-white);
+}
+
+/* ============================================
+   ACTION BUTTONS
+   ============================================ */
+
+.action-buttons {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.btn-action {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: var(--color-sand);
+  color: var(--color-charcoal);
+}
+
+.btn-action:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-soft);
+}
+
+.btn-confirm {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.btn-confirm:hover {
+  background: #4caf50;
+  color: white;
+}
+
+.btn-complete {
+  background: #e3f2fd;
+  color: #1565c0;
+}
+
+.btn-complete:hover {
+  background: #2196f3;
+  color: white;
+}
+
+.btn-cancel {
+  background: #fff3e0;
+  color: #e65100;
+}
+
+.btn-cancel:hover {
+  background: #ff9800;
+  color: white;
+}
+
+.btn-delete {
+  background: #ffebee;
+  color: #c62828;
+}
+
+.btn-delete:hover {
+  background: #f44336;
+  color: white;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 1024px) {
+  .bookings-table {
+    font-size: 13px;
+  }
+
+  .bookings-table th,
+  .bookings-table td {
+    padding: var(--space-sm);
+  }
+}
+
+@media (max-width: 768px) {
+  .manager-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .manager-header h2 {
+    font-size: 24px;
+  }
+
+  .filter-buttons {
+    width: 100%;
+  }
+
+  .filter-buttons button {
+    flex: 1;
+    min-width: 80px;
+  }
+
+  /* Make table scrollable on mobile */
+  .bookings-table-container {
+    margin: 0 calc(-1 * var(--space-lg));
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
+}

@@ -1,0 +1,167 @@
+.stylists-manager {
+  width: 100%;
+}
+
+/* ============================================
+   STYLISTS GRID
+   ============================================ */
+
+.stylists-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--space-lg);
+  margin-top: var(--space-xl);
+}
+
+.stylist-item {
+  background: var(--color-warm-white);
+  border: 2px solid var(--color-stone);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  position: relative;
+  overflow: hidden;
+}
+
+.stylist-item::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 0%, rgba(212, 165, 116, 0.05) 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.stylist-item:hover::after {
+  opacity: 1;
+}
+
+.stylist-item:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-medium);
+  border-color: var(--color-amber-light);
+}
+
+.stylist-info {
+  flex: 1;
+}
+
+.stylist-item h3 {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--color-charcoal);
+  margin-bottom: var(--space-sm);
+}
+
+.bio {
+  color: var(--color-slate);
+  line-height: 1.7;
+  margin-bottom: var(--space-md);
+  font-size: 15px;
+}
+
+.services-list {
+  padding: var(--space-md);
+  background: var(--color-sand);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-stone);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.services-list strong {
+  color: var(--color-charcoal);
+  font-weight: 600;
+  display: block;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+}
+
+.stylist-actions {
+  display: flex;
+  gap: var(--space-sm);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--color-stone);
+}
+
+/* ============================================
+   SERVICES CHECKBOXES
+   ============================================ */
+
+.services-checkboxes {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  background: var(--color-warm-white);
+  border-radius: var(--radius-md);
+  border: 2px solid var(--color-stone);
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.checkbox-label:hover {
+  background: var(--color-sand);
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: var(--color-amber);
+}
+
+.checkbox-label span {
+  color: var(--color-charcoal);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.checkbox-label input[type="checkbox"]:checked + span {
+  color: var(--color-amber-dark);
+  font-weight: 600;
+}
+
+/* ============================================
+   FORM SMALL TEXT
+   ============================================ */
+
+.form-group small {
+  display: block;
+  margin-top: 6px;
+  color: var(--color-gray);
+  font-size: 13px;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+  .stylists-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stylist-actions {
+    flex-direction: column;
+  }
+}

@@ -1,48 +1,71 @@
-import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import './App.css';
 import LandingPage from './components/LandingPage.jsx';
 import BookingPage from './components/BookingPage.jsx';
 import Header from './components/Header.jsx';
-
-// Wrapper component for BookingPage with Header
-function BookingPageWithHeader() {
-  const navigate = useNavigate();
-
-  const handleBackToHome = () => {
-    navigate('/');
-    window.scrollTo(0, 0);
-  };
-
-  return (
-    <>
-      <Header showBackButton={true} onBackToHome={handleBackToHome} />
-      <BookingPage />
-    </>
-  );
-}
-
-// Wrapper component for LandingPage
-function LandingPageWrapper() {
-  const navigate = useNavigate();
-
-  const handleBookNow = () => {
-    navigate('/booking');
-    window.scrollTo(0, 0);
-  };
-
-  return <LandingPage onBookNow={handleBookNow} />;
-}
+import AdminLogin from './components/AdminLogin.jsx';
+import AdminDashboard from './components/AdminDashboard.jsx';
 
 function App() {
+  const [currentView, setCurrentView] = useState('home'); // 'home', 'booking', 'adminLogin', 'admin'
+  const [isAdminAuthenticated, setIsAdminAuthenticated] = useState(false);
+
+  // Check URL for admin route on mount
+  useEffect(() => {
+    if (window.location.pathname === '/admin') {
+      setCurrentView('adminLogin');
+    }
+  }, []);
+
+  // Update URL when view changes
+  useEffect(() => {
+    if (currentView === 'adminLogin' || currentView === 'admin') {
+      window.history.pushState({}, '', '/admin');
+    } else {
+      window.history.pushState({}, '', '/');
+    }
+  }, [currentView]);
+
+  const handleBookNow = () => {
+    setCurrentView('booking');
+    window.scrollTo(0, 0);
+  };
+
+  const handleBackToHome = () => {
+    setCurrentView('home');
+    window.scrollTo(0, 0);
+  };
+
+  const handleAdminLogin = () => {
+    setIsAdminAuthenticated(true);
+    setCurrentView('admin');
+  };
+
+  const handleAdminLogout = () => {
+    setIsAdminAuthenticated(false);
+    setCurrentView('adminLogin');
+  };
+
+  // Render based on current view
+  if (currentView === 'adminLogin') {
+    return <AdminLogin onLogin={handleAdminLogin} />;
+  }
+
+  if (currentView === 'admin' && isAdminAuthenticated) {
+    return <AdminDashboard onLogout={handleAdminLogout} />;
+  }
+
   return (
-    <BrowserRouter>
-      <div className="App">
-        <Routes>
-          <Route path="/" element={<LandingPageWrapper />} />
-          <Route path="/booking" element={<BookingPageWithHeader />} />
-        </Routes>
-      </div>
-    </BrowserRouter>
+    <div className="App">
+      {currentView === 'home' ? (
+        <LandingPage onBookNow={handleBookNow} />
+      ) : (
+        <>
+          <Header onBackToHome={handleBackToHome} />
+          <BookingPage />
+        </>
+      )}
+    </div>
   );
 }
 

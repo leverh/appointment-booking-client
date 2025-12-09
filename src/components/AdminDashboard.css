@@ -1,0 +1,172 @@
+.admin-dashboard {
+  min-height: 100vh;
+  background: var(--color-cream);
+}
+
+/* ============================================
+   ADMIN HEADER
+   ============================================ */
+
+.admin-header {
+  background: var(--color-white);
+  border-bottom: 2px solid var(--color-stone);
+  padding: var(--space-md) 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: var(--shadow-soft);
+}
+
+.admin-header-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.admin-logo h1 {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--color-charcoal);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.btn-logout {
+  background: var(--color-white);
+  color: var(--color-amber-dark);
+  border: 2px solid var(--color-amber);
+  padding: 10px 24px;
+  border-radius: var(--radius-full);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-logout:hover {
+  background: var(--color-amber);
+  color: var(--color-white);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-soft);
+}
+
+/* ============================================
+   ADMIN CONTAINER
+   ============================================ */
+
+.admin-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-lg);
+}
+
+/* ============================================
+   ADMIN NAVIGATION TABS
+   ============================================ */
+
+.admin-nav {
+  display: flex;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-xl);
+  padding: var(--space-sm);
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--color-stone);
+  box-shadow: var(--shadow-soft);
+  overflow-x: auto;
+}
+
+.nav-tab {
+  flex: 1;
+  min-width: 120px;
+  padding: var(--space-md) var(--space-lg);
+  background: transparent;
+  border: 2px solid transparent;
+  border-radius: var(--radius-md);
+  color: var(--color-slate);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+}
+
+.nav-tab:hover {
+  background: var(--color-sand);
+  color: var(--color-charcoal);
+}
+
+.nav-tab.active {
+  background: linear-gradient(135deg, var(--color-amber) 0%, var(--color-terracotta) 100%);
+  color: var(--color-white);
+  border-color: transparent;
+  box-shadow: var(--shadow-soft);
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   ADMIN CONTENT
+   ============================================ */
+
+.admin-content {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--color-stone);
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-soft);
+  min-height: 500px;
+}
+
+/* ============================================
+   LOADING STATE
+   ============================================ */
+
+.loading {
+  text-align: center;
+  padding: var(--space-2xl);
+  color: var(--color-slate);
+  font-size: 18px;
+  font-family: var(--font-display);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+  .admin-header-content {
+    padding: 0 var(--space-md);
+  }
+
+  .admin-logo h1 {
+    font-size: 22px;
+  }
+
+  .btn-logout {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+
+  .admin-container {
+    padding: var(--space-lg) var(--space-md);
+  }
+
+  .admin-nav {
+    flex-direction: column;
+  }
+
+  .nav-tab {
+    width: 100%;
+  }
+
+  .admin-content {
+    padding: var(--space-lg);
+  }
+}
