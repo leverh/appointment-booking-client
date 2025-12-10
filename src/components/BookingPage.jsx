@@ -237,8 +237,14 @@ const BookingPage = () => {
 
   return (
     <div className="booking-container">
+      <div className="booking-hero">
+        <div className="booking-hero-content">
+          <h1>Book Your Appointment</h1>
+          <p>Choose your service and preferred time in just a few steps</p>
+        </div>
+      </div>
+
       <div className="booking-header">
-        <h1>Book Your Appointment</h1>
         <div className="step-indicator">
           <div className={`step ${step >= 1 ? 'active' : ''}`}>1. Service</div>
           <div className={`step ${step >= 2 ? 'active' : ''}`}>2. Stylist</div>

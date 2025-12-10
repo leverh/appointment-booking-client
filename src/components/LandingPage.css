@@ -315,19 +315,57 @@
 }
 
 /* ============================================
-   FEATURES - Clean card grid
+   FEATURES
    ============================================ */
 
 .features {
   padding: var(--space-2xl) 0;
   background: var(--color-cream);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background blobs */
+.features::before,
+.features::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+.features::before {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(
+    circle,
+    rgba(212, 165, 116, 0.15) 0%,
+    transparent 70%
+  );
+  top: -100px;
+  right: -100px;
+}
+
+.features::after {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(
+    circle,
+    rgba(196, 133, 111, 0.1) 0%,
+    transparent 70%
+  );
+  bottom: -150px;
+  left: -150px;
 }
 
 .features-header {
   text-align: center;
   max-width: 700px;
-  margin: 0 auto var(--space-xl);
+  margin: 0 auto var(--space-2xl);
   padding: 0 var(--space-lg);
+  position: relative;
+  z-index: 2;
 }
 
 .features h3 {
@@ -342,67 +380,147 @@
   line-height: 1.7;
 }
 
+/* Organic grid */
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: var(--space-lg);
-  max-width: 1200px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-xl);
+  max-width: 1100px;
   margin: 0 auto;
   padding: 0 var(--space-lg);
+  position: relative;
+  z-index: 2;
 }
 
 .feature-card {
   background: var(--color-white);
-  border: 1px solid var(--color-stone);
-  border-radius: var(--radius-lg);
+  border: 2px solid var(--color-stone);
   padding: var(--space-xl) var(--space-lg);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
-  overflow: hidden;
+  overflow: visible;
+  
+  /* Unique shapes for each card */
+  border-radius: 60% 40% 40% 60% / 50% 60% 40% 50%;
 }
 
+.feature-card:nth-child(2) {
+  border-radius: 40% 60% 60% 40% / 60% 40% 60% 40%;
+  margin-top: var(--space-xl);
+}
+
+.feature-card:nth-child(3) {
+  border-radius: 50% 50% 40% 60% / 40% 60% 40% 60%;
+  margin-top: calc(-1 * var(--space-lg));
+}
+
+.feature-card:nth-child(4) {
+  border-radius: 60% 40% 50% 50% / 60% 40% 60% 40%;
+  margin-top: var(--space-lg);
+}
+
+/* Blob behind each card */
 .feature-card::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
+  inset: -20px;
   background: linear-gradient(
-    90deg,
-    var(--color-amber) 0%,
-    var(--color-terracotta) 100%
+    135deg,
+    rgba(212, 165, 116, 0.08) 0%,
+    rgba(196, 133, 111, 0.05) 100%
   );
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.4s ease;
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  transform: scale(0.95);
 }
 
 .feature-card:hover::before {
-  transform: scaleX(1);
+  opacity: 1;
+  transform: scale(1);
 }
 
 .feature-card:hover {
-  transform: translateY(-8px);
+  transform: scale(1.02) rotate(1deg);
   box-shadow: var(--shadow-medium);
   border-color: var(--color-amber-light);
 }
 
+.feature-card:nth-child(even):hover {
+  transform: scale(1.02) rotate(-1deg);
+}
+
 .feature-icon {
-  width: 56px;
-  height: 56px;
+  width: 70px;
+  height: 70px;
   display: flex;
   align-items: center;
   justify-content: center;
   background: linear-gradient(135deg, var(--color-amber-light) 0%, var(--color-sand) 100%);
-  border-radius: var(--radius-md);
   margin-bottom: var(--space-md);
   color: var(--color-amber-dark);
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  
+  /* Shape for icon container */
+  border-radius: 45% 55% 52% 48% / 55% 48% 52% 45%;
+  
+  /* Default position - top left area */
+  margin-left: 0;
 }
 
+.feature-card:nth-child(2) .feature-icon {
+  border-radius: 52% 48% 45% 55% / 48% 55% 45% 52%;
+  /* Top right area */
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.feature-card:nth-child(3) .feature-icon {
+  border-radius: 48% 52% 55% 45% / 52% 45% 55% 48%;
+  /* Slightly left of center */
+  margin-left: 15%;
+}
+
+.feature-card:nth-child(4) .feature-icon {
+  border-radius: 55% 45% 48% 52% / 45% 52% 48% 55%;
+  /* Right-center area */
+  margin-left: auto;
+  margin-right: 10%;
+}
+
+/* Icon animation on hover */
 .feature-card:hover .feature-icon {
-  transform: scale(1.1) rotate(5deg);
+  transform: scale(1.15) rotate(-5deg);
+  box-shadow: var(--shadow-soft);
+}
+
+.feature-card:nth-child(even):hover .feature-icon {
+  transform: scale(1.15) rotate(5deg);
+}
+
+/* Decorative accent line */
+.feature-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--color-amber) 50%,
+    transparent 100%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.feature-card:hover::after {
+  opacity: 1;
 }
 
 .feature-card h4 {
@@ -416,6 +534,7 @@
   line-height: 1.7;
   font-size: 15px;
 }
+
 
 /* ============================================
    PROCESS SECTION - Step by step
@@ -502,7 +621,7 @@
 }
 
 /* ============================================
-   CTA SECTION - Final push with map
+   CTA SECTION
    ============================================ */
 
 .cta {
@@ -705,6 +824,28 @@
 
   .features-grid {
     grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  .feature-card,
+  .feature-card:nth-child(2),
+  .feature-card:nth-child(3),
+  .feature-card:nth-child(4) {
+    margin-top: 0;
+    /* Slightly less extreme shapes on mobile */
+    border-radius: 55% 45% 45% 55% / 50% 55% 45% 50%;
+  }
+
+  .feature-card:nth-child(2) {
+    border-radius: 45% 55% 55% 45% / 55% 45% 55% 45%;
+  }
+
+  .feature-card:nth-child(3) {
+    border-radius: 50% 50% 45% 55% / 45% 55% 45% 55%;
+  }
+
+  .feature-card:nth-child(4) {
+    border-radius: 55% 45% 50% 50% / 55% 45% 55% 45%;
   }
 
   .process-steps {
@@ -738,6 +879,15 @@
   .process-header h3,
   .cta h3 {
     font-size: 32px;
+  }
+
+  .feature-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .feature-card h4 {
+    font-size: 20px;
   }
 
   .trust-number {
