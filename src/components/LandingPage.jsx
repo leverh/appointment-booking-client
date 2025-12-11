@@ -193,8 +193,9 @@ const LandingPage = ({ onBookNow }) => {
         <div className="footer-content">
           <p>Cut Theory • Modern Hair Styling</p>
           <p className="footer-note">
-            Demo booking system built with React and Supabase • Portfolio project
+            Demo booking system built with React and Supabase
           </p>
+          <p>Open Source • MIT License • Built by <a href="https://pixelsummit.org">PixelSummit</a></p>
         </div>
       </footer>
     </div>

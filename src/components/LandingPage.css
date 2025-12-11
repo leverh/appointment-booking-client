@@ -760,6 +760,14 @@
   margin-top: var(--space-md);
 }
 
+footer a {
+  color: inherit;
+}
+
+footer a:hover {
+  color: var(--color-warm-white)
+}
+
 /* ============================================
    RESPONSIVE DESIGN
    ============================================ */
@@ -776,7 +784,23 @@
   }
 
   .showcase-features {
+    align-items: flex-start; 
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .showcase-feature {
+    display: flex;
     align-items: center;
+    text-align: left;
+    width: 100%;
+  }
+
+  .showcase-feature::before {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    margin-right: var(--space-sm);
   }
 
   .showcase-gallery {

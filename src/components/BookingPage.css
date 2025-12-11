@@ -214,9 +214,18 @@
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
+  border-left: 4px solid var(--color-amber);
 }
 
-.service-card::before {
+.service-card:nth-child(1) {
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)), 
+    url('/src/assets/balayage.webp');
+  background-size: cover;
+  background-position: center;
+}
+
+/* .service-card::before {
   content: '';
   position: absolute;
   top: 0;
@@ -237,7 +246,7 @@
   transform: translateY(-8px);
   box-shadow: var(--shadow-medium);
   border-color: var(--color-amber-light);
-}
+} */
 
 .service-card h3 {
   font-family: var(--font-display);
@@ -253,6 +262,7 @@
   line-height: 1.7;
   margin-bottom: var(--space-md);
   min-height: 48px;
+  font-weight: 600;
 }
 
 .service-details {
@@ -793,10 +803,12 @@
   
   .step-indicator {
     font-size: 12px;
+    gap: 6px;
   }
   
   .step {
-    padding: 10px 16px;
+    padding: 8px 12px;
+    font-size: 11px;
   }
   
   .services-grid,
