@@ -36,9 +36,13 @@
 }
 
 .demo-icon {
-  font-size: 24px;
-  flex-shrink: 0;
-  filter: grayscale(0.2) brightness(1.1);
+  width: 24px;
+  height: 24px;
+  padding: 4px;
+  background: rgba(212, 165, 116, 0.2);
+  border-radius: 50%;
+  color: var(--color-amber);
+  border: 2px solid var(--color-amber);
 }
 
 .demo-text {
@@ -106,6 +110,8 @@
 .demo-banner-close:active {
   transform: rotate(90deg) scale(0.95);
 }
+
+
 
 /* Responsive */
 @media (max-width: 768px) {
