@@ -849,6 +849,13 @@
    RESPONSIVE DESIGN
    ============================================ */
 
+@media (max-width: 1236px) {
+  .step-content {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+}
+
 @media (max-width: 768px) {
   .booking-container {
     padding: var(--space-lg) var(--space-md);

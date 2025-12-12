@@ -1,4 +1,15 @@
-image credits:
+# Simple Appointment Booking System
+
+The main branch contains the scaffolding, whereas portfolio-demo contains some styling appropraite for the theme. 
+
+Built using **React (Vite)** and **Supabase**. 
+
+## License
+This project is licensed under the MIT License. Copy or share - I really don't care 🖖✌️
+
+### Imagse Credits:
+**All images are from** [Pexels](https://www.pexels.com/):
+
 Photo by cottonbro studio: https://www.pexels.com/photo/woman-in-black-and-brown-zip-up-jacket-3993305/
 
 Photo by cottonbro studio: https://www.pexels.com/photo/man-in-black-hat-and-white-dress-shirt-3998422/

@@ -812,6 +812,13 @@ footer a:hover {
   }
 }
 
+@media (max-width: 968px) {
+    .process-steps {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+}
+
 @media (max-width: 768px) {
   .hero {
     min-height: 70vh;
@@ -870,11 +877,6 @@ footer a:hover {
 
   .feature-card:nth-child(4) {
     border-radius: 55% 45% 50% 50% / 55% 45% 55% 45%;
-  }
-
-  .process-steps {
-    grid-template-columns: 1fr;
-    gap: var(--space-lg);
   }
 
   .map-container {
