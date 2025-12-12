@@ -203,6 +203,7 @@
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: var(--space-lg);
   margin-top: var(--space-xl);
+  margin-bottom: var(--space-xl);
 }
 
 .service-card {
@@ -211,21 +212,84 @@
   border-radius: var(--radius-lg);
   padding: var(--space-xl);
   cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
   border-left: 4px solid var(--color-amber);
-}
-
-.service-card:nth-child(1) {
-  background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)), 
-    url('/src/assets/balayage.webp');
   background-size: cover;
   background-position: center;
 }
 
-/* .service-card::before {
+.service-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  z-index: 0;
+}
+
+/* Default state - no images */
+.service-card:nth-child(1),
+.service-card:nth-child(2),
+.service-card:nth-child(3),
+.service-card:nth-child(4),
+.service-card:nth-child(5),
+.service-card:nth-child(6) {
+  background-image: none;
+}
+
+/* Hover state - images appear */
+.service-card:nth-child(1)::after {
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.65)), 
+    url('/src/assets/balayage.webp');
+}
+
+.service-card:nth-child(2)::after {
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.65)), 
+    url('/src/assets/gallery-4.webp');
+}
+
+.service-card:nth-child(3)::after {
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.65)), 
+    url('/src/assets/color.webp');
+}
+
+.service-card:nth-child(4)::after {
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.65)), 
+    url('/src/assets/haircut.webp');
+}
+
+.service-card:nth-child(5)::after {
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.65)), 
+    url('/src/assets/highlights.webp');
+}
+
+.service-card:nth-child(6)::after {
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.65)), 
+    url('/src/assets/blow.webp');
+}
+
+.service-card:hover::after {
+  opacity: 1;
+}
+
+.service-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.service-card::before {
   content: '';
   position: absolute;
   top: 0;
@@ -246,7 +310,7 @@
   transform: translateY(-8px);
   box-shadow: var(--shadow-medium);
   border-color: var(--color-amber-light);
-} */
+}
 
 .service-card h3 {
   font-family: var(--font-display);
@@ -262,7 +326,7 @@
   line-height: 1.7;
   margin-bottom: var(--space-md);
   min-height: 48px;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .service-details {
@@ -277,9 +341,9 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  color: var(--color-gray);
-  font-size: 14px;
-  font-weight: 500;
+  color: var(--color-slate);
+  font-size: 16px;
+  font-weight: 600;
 }
 
 .duration::before {
@@ -288,9 +352,9 @@
 }
 
 .price {
-  color: var(--color-amber-dark);
-  font-weight: 700;
-  font-size: 24px;
+  color: var(--color-slate) !important;
+  font-weight: 700 !important;
+  font-size: 20px !important;
   font-family: var(--font-display);
 }
 

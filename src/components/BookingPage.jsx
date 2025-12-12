@@ -271,7 +271,7 @@ const BookingPage = () => {
                 <p className="service-description">{service.description}</p>
                 <div className="service-details">
                   <span className="duration">{service.duration_minutes} min</span>
-                  <span className="price">€{service.price}</span>
+                  <span className="price">${service.price}</span>
                 </div>
               </div>
             ))}
@@ -406,7 +406,7 @@ const BookingPage = () => {
           <div className="booking-summary">
             <div className="summary-item">
               <strong>Service:</strong>
-              <span>{selectedService.name} (€{selectedService.price})</span>
+              <span>{selectedService.name} (${selectedService.price})</span>
             </div>
             <div className="summary-item">
               <strong>Stylist:</strong>
